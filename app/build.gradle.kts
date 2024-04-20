@@ -17,6 +17,8 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+        val apiKey = extra["API_KEY"]?.toString() ?: ""
+        buildConfigField("String", "API_KEY", "\"$apiKey\"")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -35,6 +37,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+    buildFeatures {
+        buildConfig = true
     }
 }
 
